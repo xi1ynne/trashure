@@ -1,0 +1,132 @@
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+}
+
+body {
+   background-color: white;
+   font-family: Ogg, Freight Text, Pitch Sans;
+}
+
+nav a {
+   display: block;
+   padding: 20px;
+}
+
+.navBar ul {
+   list-style: none;
+   margin: 0;
+   padding: 20px;
+   background-color: green;
+   text-align: center;
+   display: flex;
+   justify-content: space-around;
+}
+
+.navBar li {
+   display: inline-block;
+   padding: 0px 20px;
+   font-size: 1.2rem;
+   font-weight: bold;
+}
+
+.navBar a {
+   text-decoration: none;
+   font-size: x-large;
+   color: white;
+   transition: all 0.3s ease 0s;
+}
+
+.navBar a:hover {
+   color: grey;
+   transition: all 0.3s ease 0s;
+}
+
+.container {
+   display: flex;
+   height: 85vh;
+}
+
+#map {
+   width: 75%;
+   height: 100%;
+}
+
+.sidebar {
+   width: 25%;
+   padding: 20px;
+   overflow-y: auto;
+}
+
+.search-bar {
+    margin-bottom: 20px;
+}
+
+.search-bar input {
+    padding: 5px;
+    margin-right: 10px;
+    border: 1px solid green;
+    width: 80%;
+}
+
+.search-bar button {
+    padding: 7px 10px;
+    background-color: green;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.filter-section {
+    background-color: white;
+    padding: 15px;
+    border: 2px solid green;
+    margin-bottom: 20px;
+}
+
+.filter-section label {
+    display: block;
+    margin: 8px 0;
+}
+
+.subcategories {
+    margin-left: 20px;
+    display: none;
+    padding-left: 10px;
+    border-left: 2px solid green;
+}
+
+.subcategories label {
+   display: block;
+   margin: 6px 0;
+}
+
+h3 {
+   margin: 10px 0;
+   color: green;
+}
+
+#calendar {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+#calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#calendar-body {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 1px;
+}
+
+.day {
+  padding: 20px;
+  text-align: center;
+  border: 1px solid #ddd;
+}

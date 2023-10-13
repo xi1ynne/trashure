@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Trashure</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+</head>
+
+<body>
+    <nav>
+        <a href="index.html"> <img src="image/logo.png" width="200px"> </a>
+    </nav>
+    
+    <nav>
+        <div class="navBar">
+            <ul>
+                <li><a href="trashuremap.html">Trashure Map</a></li>
+                <li><a href="trashurecalendar.html">Trashure Calendar</a></li>
+                <li><a href="newsletters.html">Newsletters</a></li>
+                <li><a href="the5Rs.html">The 5R's</a></li>
+                <li><a href="aboutus.html">About Us</a></li>
+            </ul>
+        </div>
+    </nav>
+
+
+    <div class="container">
+        <div id="map"></div>
+        <div class="sidebar">
+            <div class="search-bar">
+                <input type="text" id="search" placeholder="Search for a location">
+                <button onclick="searchLocation()">Search</button>
+            </div>
+            <h3>Filter:</h3>
+            <div class="filter-section">
+                <label><input type="checkbox" id="e-waste" onchange="filterLocations()"> E-Waste</label>
+                <div id="e-waste-subcategories" class="subcategories">
+                    <label><input type="checkbox" class="e-waste" value="monitors"> Monitors</label><br>
+                    <label><input type="checkbox" class="e-waste" value="computers"> Computers</label><br>
+                    <label><input type="checkbox" class="e-waste" value="laptops"> Laptops</label><br>
+                    <label><input type="checkbox" class="e-waste" value="cellphones"> Cell Phones</label><br>
+                    <label><input type="checkbox" class="e-waste" value="ipads"> iPads</label><br>
+                    <label><input type="checkbox" class="e-waste" value="batteries"> Batteries</label><br>
+                </div>
+                <label><input type="checkbox" id="clothing" onchange="filterLocations()"> Clothing, Shoes, and Accessories</label>
+                <label><input type="checkbox" id="vendor" onchange="filterLocations()"> Vendor Type</label>
+                <div id="vendor-subcategories" class="subcategories">
+                    <label><input type="checkbox" class="vendor" value="recycler"> Recycler</label><br>
+                    <label><input type="checkbox" class="vendor" value="donation-center"> Donation Center</label><br>
+                    <label><input type="checkbox" class="vendor" value="second-hand-store"> Second Hand Store</label><br>
+                </div>
+            </div>
+            <!-- Add more categories as needed -->
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>
