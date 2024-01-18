@@ -1,4 +1,4 @@
-var map = L.map('map').setView([37.5500, -121.9833], 9); // Centered on Greater Silicon Valley
+var map = L.map('map').setView([37.5500, -121.9833], 9); // Centered on Greater SV
 
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
 
@@ -78,8 +78,12 @@ var locations = [
 ];
 
 
+<<<<<<< HEAD
 >>>>>>> 93c110b (map location)
 // Function to add markers
+=======
+//function to add markers
+>>>>>>> 9105d33 (changed add marker func)
 function addMarkers() {
     markers.forEach(marker => marker.remove());
     markers = [];
@@ -126,6 +130,8 @@ addMarkers(); // Add initial markers
 =======
 addMarkers(); 
 >>>>>>> 93c110b (map location)
+
+
 
 // Map search bar
 function searchLocation() {
@@ -179,17 +185,14 @@ function renderCalendar() {
     var lastDay = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 0);
     calendarTitle.innerText = firstDay.toLocaleString('default', { month: 'long' }) + ' ' + firstDay.getFullYear();
 
-    // Fill in blank days from previous month
     for (var i = 0; i < firstDay.getDay(); i++) {
         calendarBody.innerHTML += `<div class="day"></div>`;
     }
 
-    // Fill in current month's days
     for (var i = 1; i <= lastDay.getDate(); i++) {
         calendarBody.innerHTML += `<div class="day">${i}</div>`;
     }
 
-    // Fill in blank days from next month
     for (var i = lastDay.getDay() + 1; i < 7; i++) {
         calendarBody.innerHTML += `<div class="day"></div>`;
     }
