@@ -1,4 +1,4 @@
-var map = L.map('map').setView([37.5500, -121.9833], 9); // Centered on Greater SV
+var map = L.map('map').setView([37.5500, -121.9833], 9); // Centered on greater sv
 
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
 
@@ -10,7 +10,7 @@ var locations = [
     { coordinates: [37.517514547903524, -122.2584655752255], category: 'houseApp', subcategory: ['coffeeMachine', 'microwave', 'smallApp'], info: '<b>Shoreway Environmental Center</b><br>333 Shoreway Road, San Carlos, CA 94070<br><a href=https://rethinkwaste.org/shoreway-environmental-center/location-hours/>Website</a>' },
     { coordinates: [37.517514547903524, -122.2584655752255], category: 'vendor', subcategory: ['recylingCenter'], info: '<b>Shoreway Environmental Center</b><br>333 Shoreway Road, San Carlos, CA 94070<br><a href=https://rethinkwaste.org/shoreway-environmental-center/location-hours/>Website</a>' },
 
-    { coordinates: [37.41113909740687, -121.88361826359153], category: 'e-waste', subcategory: ['television','computer','server','lapton','monitor','battery','tablet'], info: '<b>Green E-Waste Recycling Center</b><br>1664 Watson Court, Milpitas, CA 95035<br><a href=https://gerecycle.com/ewaste-recycling/drop-off/>Website</a>' },
+    { coordinates: [37.41113909740687, -121.88361826359153], category: 'e-waste', subcategory: ['television','computer','server','laptop','monitor','battery','tablet'], info: '<b>Green E-Waste Recycling Center</b><br>1664 Watson Court, Milpitas, CA 95035<br><a href=https://gerecycle.com/ewaste-recycling/drop-off/>Website</a>' },
     { coordinates: [37.41113909740687, -121.88361826359153], category: 'vendor', subcategory: ['recylingCenter'], info: '<b>Green E-Waste Recycling Center</b><br>1664 Watson Court, Milpitas, CA 95035<br><a href=https://gerecycle.com/ewaste-recycling/drop-off/>Website</a>' },
 
     { coordinates: [37.40170552979696, -122.10996801050791], category: 'vendor', subcategory: ['recylingCenter'], info: '<b>eco-ATM Kiosks</b><br>600 Showers Dr, Mountain View, CA 94040<br><a href=https://locations.ecoatm.com/?utm_source=google&utm_medium=cpc&utm_campaign=FX_ECO_PMAX_TOF_SegmentB&gclid=CjwKCAjw-7OlBhB8EiwAnoOEk7gHY8gtH8Kvs67DteM-ouJ1EyaC50ypjKBkwCdO82CEddpjj7cUmBoCeN8QAvD_BwE>Website</a>' },
