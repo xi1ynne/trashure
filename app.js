@@ -60,11 +60,10 @@ var locations = [
     { coordinates: [37.62878581991743, -122.1086797256559], category: 'vendor', subcategory: ['recylingCenter'], info: '<b>Rica Recycling</b><br>27105 Industrial Blvd, Hayward, CA 94545<br><a href=https://www.ricarecycling.com/electronic-waste-drop-off>Website</a>' },
     { coordinates: [37.62878581991743, -122.1086797256559], category: 'e-waste', subcategory: ['monitor','computer','cellphone', 'copier', 'television','keyboard','tablet','server', 'printer'], info: '<b>Rica Recycling</b><br>27105 Industrial Blvd, Hayward, CA 94545<br><a href=https://www.ricarecycling.com/electronic-waste-drop-off>Website</a>' },
     { coordinates: [37.62878581991743, -122.1086797256559], category: 'houseApp', info: '<b>Rica Recycling</b><br>27105 Industrial Blvd, Hayward, CA 94545<br><a href=https://www.ricarecycling.com/electronic-waste-drop-off>Website</a>' },
-
+    
 ];
 
 
-//function to add markers
 function addMarkers() {
     markers.forEach(marker => marker.remove());
     markers = [];
@@ -88,6 +87,7 @@ function addMarkers() {
     });
 }
 
+//manage the filter for subcategories
 document.getElementById('e-waste').addEventListener('change', function() {
     document.getElementById('e-waste-subcategories').style.display = this.checked ? 'block' : 'none';
     addMarkers();
@@ -97,38 +97,58 @@ document.querySelectorAll('input.e-waste').forEach(function(element) {
     element.addEventListener('change', addMarkers);
 });
 
-addMarkers(); 
-
-
-// Map search bar
-function searchLocation() {
-    var searchQuery = document.getElementById('search').value;
-    var geocodingApi = 'https://nominatim.openstreetmap.org/search?format=json&limit=1&q=' + encodeURIComponent(searchQuery);
-
-    fetch(geocodingApi)
-        .then(response => response.json())
-        .then(data => {
-            if (data.length > 0) {
-                var lat = parseFloat(data[0].lat);
-                var lon = parseFloat(data[0].lon);
-                map.setView([lat, lon], 15);
-            } else {
-                alert('Location not found');
-            }
-        })
-        .catch(error => {
-            console.error('An error occurred:', error);
-            alert('An error occurred while searching for the location');
-        });
-}
-
-['e-waste', 'houseApp', 'clothing','vendor'].forEach(cat => {
-    document.getElementById(cat).addEventListener('change', function() {
-        document.getElementById(cat + '-subcategories').style.display = this.checked ? 'block' : 'none';
-        addMarkers();
-    });
+document.getElementById('houseApp').addEventListener('change', function() {
+    document.getElementById('houseApp-subcategories').style.display = this.checked ? 'block' : 'none';
+    addMarkers();
 });
 
+document.querySelectorAll('input.houseApp').forEach(function(element) {
+    element.addEventListener('change', addMarkers);
+});
+
+document.getElementById('clothing').addEventListener('change', function() {
+    document.getElementById('clothing-subcategories').style.display = this.checked ? 'block' : 'none';
+    addMarkers();
+});
+
+document.querySelectorAll('input.clothing').forEach(function(element) {
+    element.addEventListener('change', addMarkers);
+});
+
+document.getElementById('vendor').addEventListener('change', function() {
+    document.getElementById('vendor-subcategories').style.display = this.checked ? 'block' : 'none';
+    addMarkers();
+});
+
+document.querySelectorAll('input.vendor').forEach(function(element) {
+    element.addEventListener('change', addMarkers);
+});
+
+addMarkers(); 
+
+// search bar
+function searchLocation() {
+    var searchQuery = document.getElementById('search').value.toLowerCase(); // Get the search input and convert it to lower case for case-insensitive comparison
+
+    markers.forEach(marker => marker.remove());
+    markers = [];
+
+    locations.forEach(function(location) {
+        var categoryMatch = location.category.toLowerCase().includes(searchQuery);
+        var subcategoryMatch = location.subcategory.some(sub => sub.toLowerCase().includes(searchQuery));
+
+        if (categoryMatch || subcategoryMatch) {
+            // if match --> create marker
+            var marker = L.marker(location.coordinates).addTo(map);
+            marker.bindPopup(location.info);
+            markers.push(marker);
+        }
+    });
+
+    if (markers.length === 0) {
+        alert('No locations found for the search query.');
+    }
+}
 
 
 
